@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import validator from "validator";
+import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import "./App.css";
@@ -13,6 +12,7 @@ console.log({a});
 
 
 const Schema = Yup.object().shape({
+  email: Yup.string().email('Email must be valid email').required(),
   password: Yup.string().required("This field is required")
   .test('is-valid',
   (d) => `${d.path} should contain at least one Number, one upperCase and one lowercase letter and a special character`,
@@ -28,16 +28,6 @@ const Schema = Yup.object().shape({
 });
 
 function App() {
-  const [emailError, setEmailError] = useState('');
-    const validateEmail = (e) => {
-      var email = e.target.value;
-  
-      if (validator.isEmail(email)) {
-        setEmailError('Valid Email');
-      } else {
-        setEmailError('Enter Valid Email');
-      }
-    }
   return (
     <Formik
       initialValues={{
@@ -53,8 +43,17 @@ function App() {
           <div className="App">
           <form onSubmit={handleSubmit}>
           <h2>Login</h2>
-            <input type='text' placeholder='Email' onChange={(e) => validateEmail(e)} /> <br />
-            <span>{emailError}</span>
+          <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={values.email}
+            /> <br />
+            <span class="error">
+              {errors.email}
+            </span>
             <br /> <br />
             <input
               type="password"
