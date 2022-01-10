@@ -1,6 +1,9 @@
 .App {
-  text-align: center;
   padding-top: 70px;
+}
+
+h3 {
+  text-align: center;
 }
 
 input {
@@ -9,4 +12,14 @@ input {
 
 span {
   text-transform: uppercase;
+}
+
+label {
+  text-align: left;
+}
+
+button {
+  width: 400px;
+  text-align: center;
+  margin-right: 90px;
 }
