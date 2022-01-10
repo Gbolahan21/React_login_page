@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+  padding-top: 50px;
+}
+
+input {
+  width: 400px;
+}
+
+span {
+  text-transform: uppercase;
+}
