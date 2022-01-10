@@ -7,10 +7,6 @@ var isMatch = new RegExp(
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=[^!"#$%&'()*+,-.:;<=>?@[\]^_`{|}~]*[!"#$%&'()*+,-.:;<=>?@[\]^_`{|}~])(?=\D*\d)/
 );
 
-const a = isMatch.test('Frredom@1123')
-console.log({a});
-
-
 const Schema = Yup.object().shape({
   email: Yup.string().email('Email must be valid email').required(),
   password: Yup.string().required("This field is required")
